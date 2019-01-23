@@ -65,7 +65,7 @@ dds <- DESeq(dds)
 rld <- rlogTransformation(dds, blind=TRUE)
 sampleDists <- dist(t(assay(rld)))
 
-png(file="samples_heatmap.png",bg ="transparent",height=768,width=1024)
+png(file="samples_heatmap.png",height=768,width=1024)
 heatmap.2(as.matrix(sampleDists), col = bluered(100),RowSideColors = col.blocks,srtRow=45,srtCol=45,trace="none", margins=c(5, 5))
 dev.off()
 
