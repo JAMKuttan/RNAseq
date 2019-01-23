@@ -201,6 +201,7 @@ process statanal {
   file "*.txt" into txtfiles
   file "*.png" into psfiles
   file("bg.rda") into rdafiles
+  file("geneset.shiny.gmt") into gmtfile
   when:
   script:
   if (params.dea == 'skip')
@@ -209,6 +210,7 @@ process statanal {
   perl $baseDir/scripts/concat_fpkm.pl -o ./ *.fpkm.txt
   touch empty.png
   touch bg.rda
+  cp geneset.gmt geneset.shiny.gmt
   """
   else
   """
